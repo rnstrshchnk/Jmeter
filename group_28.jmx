@@ -1931,7 +1931,7 @@ vars.put(&quot;token&quot;, auth_token);</stringProp>
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">D:\git\Jmeter\stepping_thread_group.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
