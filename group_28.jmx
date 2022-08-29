@@ -1691,7 +1691,7 @@ vars.put(&quot;token&quot;, auth_token);</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="true">
+      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <stringProp name="ThreadGroup.num_threads">700</stringProp>
         <stringProp name="Threads initial delay">3</stringProp>
@@ -1997,7 +1997,7 @@ vars.put(&quot;token&quot;, auth_token);</stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user_info_2" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user_info_2" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="age" elementType="HTTPArgument">
@@ -2083,7 +2083,7 @@ vars.put(&quot;token&quot;, auth_token);</stringProp>
         </ResultCollector>
         <hashTree/>
         <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
-          <stringProp name="BeanShellAssertion.query">//${__setProperty(qa_salary_after_6_months,${qa_salary_after_6_months})}
+          <stringProp name="BeanShellAssertion.query">${__setProperty(qa_salary_after_6_months,${qa_salary_after_6_months})}
 ${__setProperty(name,${name})}</stringProp>
           <stringProp name="BeanShellAssertion.filename"></stringProp>
           <stringProp name="BeanShellAssertion.parameters"></stringProp>
@@ -2124,7 +2124,7 @@ ${__setProperty(name,${name})}</stringProp>
               </elementProp>
               <elementProp name="salary" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">1200</stringProp>
+                <stringProp name="Argument.value">${salary}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">salary</stringProp>
@@ -2194,8 +2194,8 @@ ${__setProperty(name,${name})}</stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
-          <stringProp name="script">//int salary = props.get(&quot;qa_salary_after_6_months&quot;);
-//vars.put(&quot;salary&quot;, salary);
+          <stringProp name="script">int salary = props.get(&quot;qa_salary_after_6_months&quot;);
+vars.put(&quot;qa_salary_after_6_months&quot;, salary);
 
 String name = props.get(&quot;name&quot;);
 vars.put(&quot;name&quot;, name);</stringProp>
