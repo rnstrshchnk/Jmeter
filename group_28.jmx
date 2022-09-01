@@ -2041,7 +2041,7 @@ vars.put(&quot;token&quot;, auth_token);</stringProp>
         <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
           <stringProp name="BeanShellAssertion.query">//${__setProperty(qa_salary_after_6_months,${qa_salary_after_6_months})}
 ${__setProperty(name,${name})}
-${__setProperty(age,${age})}</stringProp>
+//${__setProperty(age,${age})}</stringProp>
           <stringProp name="BeanShellAssertion.filename"></stringProp>
           <stringProp name="BeanShellAssertion.parameters"></stringProp>
           <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
@@ -2133,8 +2133,10 @@ ${__setProperty(age,${age})}</stringProp>
 String name = props.get(&quot;name&quot;);
 vars.put(&quot;name&quot;, name);
 
-int age = Integer.parseInt(props.getProperty(&quot;age&quot;));
-vars.put(&quot;age&quot;, age);</stringProp>
+//int age = Integer.parseInt(props.getProperty(&quot;age&quot;));
+//vars.put(&quot;age&quot;, age);
+
+//${__property(name)}</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user_info_2" enabled="false">
@@ -2204,7 +2206,7 @@ vars.put(&quot;age&quot;, age);</stringProp>
               </elementProp>
               <elementProp name="age" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${age}</stringProp>
+                <stringProp name="Argument.value">22</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">age</stringProp>
